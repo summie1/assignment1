@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>SIAYA COUNTY</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+	<style>
+	.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 6px;
+  margin: 2.5px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 1px solid #4CAF50;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+h1 {
+  color: blue;
+  font-family: times;
+  font-size: 200%;
+
+}
+p  {
+  color: purple;
+  font-family: Times New Roman;
+  font-size: 100%;
+}
+p {
+  border: 2px solid powderblue;
+  padding:0px;
+  margin: 0px;
+  }
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+    
+</head>
+
+<a href="#" style="margin-left: 40% ; font-size: 24px; font-family: 'Algerian'; color: rgb(205, 0, 0);">SIAYA COUNTY</a>
+<br>
+<a href="#" style="margin-left: 00% ; font-size: 18px; font-family: 'Times New Roman'; color: rgb(0, 60, 255);">FIND YOUR RESTAURANT LOCATION</a><br>
+</head>
+<body>
+
+<section class ="popup">
+
+<div class="popup" onclick="myFunction()">To view more click me!
+  <span class="popuptext" id="myPopup">Odhiambo Samson<br> Siaya County Referral Hospital<br>03/12/2022 </span>
+</div> 
+<button style="margin-right: 20% ;" onclick="window.alert('Odhiambo Samson, ENC222-0162/2019')"; 
+class="button button1">My details</button><br>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");}
+</script>
+</section>
+<br>
+<label for="start">Set up todays date</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2030-12-31">
+	   
+    <section>
+<div id="map" style="width:100%; height:400px;"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+       
+		<script>
+        // Initialize the map
+        const map = L.map('map')
+      
+        // Get the tile layer from OpenStreetMaps
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      
+        // Specify the maximum zoom of the map
+        maxZoom: 15,
+      
+        // Set the attribution for OpenStreetMaps
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+      
+        // Set the view of the map
+        // with the latitude, longitude and the zoom value
+        // map.setView
+        map.setView([ 0.062629, 34.287807] , 15);
+      
+        // Show a market at the position of the Eiffel Tower
+        let eiffelMarker = L.marker([ 0.062629, 34.287807]).addTo(map);
+      
+        // Bind popup to the marker with a popup
+        eiffelMarker.bindPopup("Lat<0.062629>, Lng<34.287807>").addTo(map);
+		</script>
+            
+    </section>
+
+    <section class="footer">
+    
+        <style>
+        .footer{
+            
+            background-color: cyan;
+            min-height: 30vh; padding: 8px;
+    
+
+        }
+       
+        </style>
+        
+       <div class="footer_section">
+       <style>
+        .footer_section{
+            display: flex;
+            flex-direction: row;
+            row-gap: 2rem;
+            color: rgb(255, 10, 0);
+			font-family: Times New Roman;
+            list-style: none;
+            margin-top: 1.8rem;
+        }
+    </style>
+       <li class="contributers">CONTRIBUTERS
+        <ul style="color: rgb(0, 0, 255); ;">Odhiambo Samson, Leaflet providers, OSM</ul>
+        
+       </li>
+       <li  style="margin-left: 30% ;" class="authers">AUTHORS
+        <ul style="color:rgb(0, 0, 255);">Odhiambo Samson</ul>
+    </li>
+       <li  style="margin-left: 20% ;" class="marginal information">MARGINAL INFORMATION
+        <ul style="color: rgb(0, 0, 255);">Siaya County basemap produced by <br>Odhiambo Samson<br>
+		<a href ="mailto:onyangosamson93@gmail.com;"><target="self">Send Email<a>
+        </ul>
+		<ul style="color: rgb(255, 1, 1);">&copy; &#127757; 04/10/2022</ul>
+    </li>
+        </div>
+    </div>
+    
+</section>
+
+</body>
+</html>
+
